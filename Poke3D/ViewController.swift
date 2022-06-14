@@ -22,6 +22,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
+        sceneView.autoenablesDefaultLighting = true
+        
         
     }
     
@@ -34,7 +36,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "PokemonCards", bundle: Bundle.main) {
         
             configuration.trackingImages = imageToTrack
-            configuration.maximumNumberOfTrackedImages = 1
+            configuration.maximumNumberOfTrackedImages = 4
             
             print("images successfully added")
         }
@@ -48,7 +50,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
-        
 
     }
 
@@ -59,14 +60,63 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let node = SCNNode()
         
         if let imageAnchor = anchor as? ARImageAnchor {
+            
+            let cardType = imageAnchor.referenceImage.name!
+            
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
             plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.5)
             let planeNode = SCNNode(geometry: plane)
             planeNode.eulerAngles.x = -.pi/2
             
             node.addChildNode(planeNode)
+            
+            if cardType == "eevee" {
+                if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn"){
+                    if let pokeNode = pokeScene.rootNode.childNodes.first{
+                        pokeNode.eulerAngles.x = .pi/2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if cardType == "burmy" {
+                if let pokeScene = SCNScene(named: "art.scnassets/burmy.scn"){
+                    if let pokeNode = pokeScene.rootNode.childNodes.first{
+                        pokeNode.eulerAngles.x = .pi/2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if cardType == "pancham" {
+                if let pokeScene = SCNScene(named: "art.scnassets/pancham.scn"){
+                    if let pokeNode = pokeScene.rootNode.childNodes.first{
+                        pokeNode.eulerAngles.x = .pi/2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if cardType == "honedge" {
+                if let pokeScene = SCNScene(named: "art.scnassets/honedge.scn"){
+                    if let pokeNode = pokeScene.rootNode.childNodes.first{
+                        pokeNode.eulerAngles.x = .pi/2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if cardType == "oddish" {
+                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn"){
+                    if let pokeNode = pokeScene.rootNode.childNodes.first{
+                        pokeNode.eulerAngles.x = .pi/2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            
         }
-        
         return node
     }
 }

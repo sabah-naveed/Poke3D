@@ -5,7 +5,19 @@
   },
   "resources" : [
     {
-      "filename" : "eevee-card.arreferenceimage"
+      "filename" : "burmy.arreferenceimage"
+    },
+    {
+      "filename" : "eevee.arreferenceimage"
+    },
+    {
+      "filename" : "honedge.arreferenceimage"
+    },
+    {
+      "filename" : "oddish.arreferenceimage"
+    },
+    {
+      "filename" : "pancham.arreferenceimage"
     }
   ]
 }

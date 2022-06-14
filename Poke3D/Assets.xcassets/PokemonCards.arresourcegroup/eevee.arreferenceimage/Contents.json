@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "eevee-card.png",
+      "filename" : "eevee.png",
       "idiom" : "universal"
     }
   ],
@@ -10,6 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "width" : 0.065000000000000002
+    "width" : 0.059999999999999998
   }
 }
